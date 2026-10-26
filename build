@@ -1,7 +1,22 @@
 #!/bin/env bash
 
+DEBUG=0
 cTarget="spkg.out"
 cObjs=$(find src -type f -name "*.c")
 cFlags="-std=c99"
 
-clang $cObjs $cFlags -o bin/$cTarget
+while getopts d flag
+do
+    case "${flag}" in
+	d) DEBUG=1;;
+    esac
+done
+
+
+if [ "$DEBUG" -eq 1 ]; then
+    echo "Building with debug flags"
+    clang $cObjs $cFlags -o bin/$cTarget -DDEBUG
+else
+    echo "Building release"
+    clang $cObjs $cFlags -o bin/$cTarget
+fi
