@@ -1,0 +1,7 @@
+#!/bin/env bash
+
+cTarget="spkg.out"
+cObjs=$(find src -type f -name "*.c")
+cFlags="-std=c99"
+
+clang $cObjs $cFlags -o bin/$cTarget
