@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-DEBUG=0
+DEBUG=1
 cTarget="spkg.out"
 cObjs=$(find src -type f -name "*.c")
 cFlags="-std=c99"
@@ -8,7 +8,7 @@ cFlags="-std=c99"
 while getopts d flag
 do
     case "${flag}" in
-	d) DEBUG=1;;
+	r) DEBUG=0;;
     esac
 done
 
