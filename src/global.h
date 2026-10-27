@@ -8,3 +8,6 @@ typedef enum {
   LOG_LEVEL_DEBUG = 4
 } log_level;
 
+#define SPKG_PATH "/opt/spkg/"
+#define SPKG_CACHE "/opt/spkg/cache/"
+#define SPKG_PKGS "/opt/spkg/installed/"
