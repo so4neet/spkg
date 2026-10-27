@@ -5,7 +5,7 @@ cTarget="spkg.out"
 cObjs=$(find src -type f -name "*.c")
 cFlags="-std=c99"
 
-while getopts d flag
+while getopts r flag
 do
     case "${flag}" in
 	r) DEBUG=0;;
