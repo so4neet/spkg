@@ -8,6 +8,17 @@ typedef enum {
   LOG_LEVEL_DEBUG = 4
 } log_level;
 
+typedef struct {
+  unsigned int SPKG_MODE_SYNC : 1;
+  unsigned int SPKG_MODE_UPDATE : 1;
+  unsigned int SPKG_MODE_SEARCH : 1;
+  unsigned int SPKG_MODE_REMOVE : 1;
+  unsigned int SPKG_MODE_INSTALL : 1;
+  unsigned int SPKG_MODE_ROLLBACK : 1;
+  unsigned int SPKG_MODE_SHOW_VER : 1;
+  unsigned int SPKG_MODE_SHOW_HELP : 1;
+} spkg_opts;
+
 #define SPKG_PATH "/opt/spkg/"
 #define SPKG_CACHE "/opt/spkg/cache/"
 #define SPKG_PKGS "/opt/spkg/installed/"

@@ -18,8 +18,8 @@ echo "#define VERSION \"${VERSION}${GIT_STAT}\"" > src/version.h
 
 if [ "$DEBUG" -eq 1 ]; then
     echo "Building with debug flags"
-    clang $cObjs $cFlags -o bin/$cTarget -DDEBUG
+    clang $cObjs $cFlags -o bin/$cTarget -DDEBUG -D_GNU_SOURCE
 else
     echo "Building release"
-    clang $cObjs $cFlags -o bin/$cTarget
+    clang $cObjs $cFlags -o bin/$cTarget -D_GNU_SOURCE
 fi
