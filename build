@@ -1,6 +1,8 @@
 #!/bin/env bash
 
+# Versioning Stuff
 VERSION=$(git rev-parse --short HEAD)
+GIT_STAT=$(git diff --quiet || echo '::dirty')
 DEBUG=1
 cTarget="spkg.out"
 cObjs=$(find src -type f -name "*.c")
@@ -12,7 +14,7 @@ do
 	r) DEBUG=0;;
     esac
 done
-echo "#define VERSION ${VERSION}" > src/version.h 
+echo "#define VERSION \"${VERSION}${GIT_STAT}\"" > src/version.h 
 
 if [ "$DEBUG" -eq 1 ]; then
     echo "Building with debug flags"

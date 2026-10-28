@@ -1,1 +1,1 @@
-#define VERSION=4b329e2
+#define VERSION "2b85aeb::dirty"
