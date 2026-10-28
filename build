@@ -1,5 +1,6 @@
 #!/bin/env bash
 
+VERSION=$(git rev-parse --short HEAD)
 DEBUG=1
 cTarget="spkg.out"
 cObjs=$(find src -type f -name "*.c")
@@ -11,7 +12,7 @@ do
 	r) DEBUG=0;;
     esac
 done
-
+echo "#define VERSION ${VERSION}" > src/version.h 
 
 if [ "$DEBUG" -eq 1 ]; then
     echo "Building with debug flags"

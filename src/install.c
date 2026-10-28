@@ -28,6 +28,7 @@ int spkg_install(int argc, char* argv[]) {
   }
   log_message(LOG_LEVEL_INFO, "Installing packages %s...\n", vpkg_list);
   // actually fetch packages
+  
   free(vpkg_list);
   return 0;
 }
