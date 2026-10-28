@@ -22,3 +22,4 @@ typedef struct {
 #define SPKG_PATH "/opt/spkg/"
 #define SPKG_CACHE "/opt/spkg/cache/"
 #define SPKG_PKGS "/opt/spkg/installed/"
+#define SPKG_REPO "/opt/spkg/repo/"

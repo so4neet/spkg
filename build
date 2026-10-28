@@ -6,7 +6,7 @@ GIT_STAT=$(git diff --quiet || echo '::dirty')
 DEBUG=1
 cTarget="spkg.out"
 cObjs=$(find src -type f -name "*.c")
-cFlags="-std=c99"
+cFlags="-std=gnu99"
 
 while getopts r flag
 do
@@ -18,8 +18,8 @@ echo "#define VERSION \"${VERSION}${GIT_STAT}\"" > src/version.h
 
 if [ "$DEBUG" -eq 1 ]; then
     echo "Building with debug flags"
-    clang $cObjs $cFlags -o bin/$cTarget -DDEBUG -D_GNU_SOURCE
+    clang $cObjs $cFlags -o bin/$cTarget -DDEBUG 
 else
     echo "Building release"
-    clang $cObjs $cFlags -o bin/$cTarget -D_GNU_SOURCE
+    clang $cObjs $cFlags -o bin/$cTarget
 fi

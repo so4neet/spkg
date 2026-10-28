@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
   if (pkg_opts.SPKG_MODE_UPDATE) log_message(LOG_LEVEL_DEBUG, "Update passed");
   if (pkg_opts.SPKG_MODE_SEARCH) log_message(LOG_LEVEL_DEBUG, "Search passed");
   if (pkg_opts.SPKG_MODE_REMOVE) log_message(LOG_LEVEL_DEBUG, "Remove passed");
-  if (pkg_opts.SPKG_MODE_INSTALL) log_message(LOG_LEVEL_DEBUG, "Install passed");
+  if (pkg_opts.SPKG_MODE_INSTALL) spkg_install(argc, argv);
   if (pkg_opts.SPKG_MODE_ROLLBACK) log_message(LOG_LEVEL_DEBUG, "Rollback passed");
   if (pkg_opts.SPKG_MODE_SHOW_VER) log_message(LOG_LEVEL_INFO, "spkg v:%s | Lira Devices", VERSION);
   if (pkg_opts.SPKG_MODE_SHOW_HELP) log_message(LOG_LEVEL_DEBUG, "Help passed");
