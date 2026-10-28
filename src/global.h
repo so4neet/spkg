@@ -19,7 +19,15 @@ typedef struct {
   unsigned int SPKG_MODE_SHOW_HELP : 1;
 } spkg_opts;
 
-#define SPKG_PATH "/opt/spkg/"
-#define SPKG_CACHE "/opt/spkg/cache/"
-#define SPKG_PKGS "/opt/spkg/installed/"
-#define SPKG_REPO "/opt/spkg/repo/"
+typedef struct {
+  char *name;
+  char *pretty;
+  char *desc;
+  char *ver;
+  char *chksum;
+} PkgMeta;
+
+#define SPKG_PATH "/opt/spkg"
+#define SPKG_CACHE "/opt/spkg/cache"
+#define SPKG_PKGS "/opt/spkg/installed"
+#define SPKG_REPO "/opt/spkg/repo"
