@@ -4,6 +4,8 @@
 #include "logger/logger.h"
 #include "install.h"
 
+void print_help();
+
 int main(int argc, char *argv[]) {
   int opt;
   spkg_opts pkg_opts = {0};
@@ -46,6 +48,19 @@ int main(int argc, char *argv[]) {
   if (pkg_opts.SPKG_MODE_INSTALL) spkg_install(argc, argv);
   if (pkg_opts.SPKG_MODE_ROLLBACK) log_message(LOG_LEVEL_DEBUG, "Rollback passed");
   if (pkg_opts.SPKG_MODE_SHOW_VER) log_message(LOG_LEVEL_INFO, "spkg v:%s | Lira Devices", VERSION);
-  if (pkg_opts.SPKG_MODE_SHOW_HELP) log_message(LOG_LEVEL_DEBUG, "Help passed");
+  if (pkg_opts.SPKG_MODE_SHOW_HELP) print_help();
   return 0;
+}
+
+void print_help() {
+  log_message(LOG_LEVEL_INFO, "SPKG - Flags: ");
+  log_message(LOG_LEVEL_INFO, "  -> 'i' | Install package(s) passed");
+  log_message(LOG_LEVEL_INFO, "  -> 'U' | Update system");
+  log_message(LOG_LEVEL_INFO, "  -> 'u' | Sync metadata");
+  log_message(LOG_LEVEL_INFO, "  -> 'r' | Remove package(s) passed");
+  log_message(LOG_LEVEL_INFO, "  -> 's' | Search for package(s) passed");
+  log_message(LOG_LEVEL_INFO, "  -> 'R' | Rollback package passed to a specified version number. '*' can be passed to rollback the entire system to an earlier state if 'ROLLBACK_SYS_SNAPSHOTS=true' in '/opt/spkg/spkg.config'");
+  log_message(LOG_LEVEL_INFO, "  -> 'v' | Shows version of SPKG");
+  log_message(LOG_LEVEL_INFO, "  -> 'h' | Shows this message");
+  log_message(LOG_LEVEL_INFO, "Flags can be chained together, so 'spkg -uUi nano' would sync metadata, update the system, then install 'nano'");
 }
